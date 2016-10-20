@@ -19,7 +19,7 @@
       "icon": "resources/osx/dmg-icon.icns",
       "background": "resources/osx/dmg-background.png"
     },
-    "extraResources": "/bin/**.*"
+    "extraResources": "app/bin/**/*"
   },
   "directories": {
     "buildResources": "resources"
