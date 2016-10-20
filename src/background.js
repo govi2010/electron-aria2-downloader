@@ -7,6 +7,7 @@ import { app, Menu } from 'electron';
 import { devMenuTemplate } from './menu/dev_menu_template';
 import { editMenuTemplate } from './menu/edit_menu_template';
 import createWindow from './helpers/window';
+const aria2 = require('./aria2');
 
 // Special module holding environment variables which you declared
 // in config/env_xxx.json file.
@@ -43,8 +44,19 @@ app.on('ready', function () {
     if (env.name === 'development') {
         mainWindow.openDevTools();
     }
+    debugger;
+    aria2.launch(
+		//"je4nspFB68fex",
+		//"caprica",
+		//"purple"
+	)
 });
 
 app.on('window-all-closed', function () {
+    
     app.quit();
+});
+
+app.on('quit', function () {
+	aria2.quit();
 });

@@ -13,10 +13,28 @@ var projectDir = jetpack;
 var srcDir = jetpack.cwd('./src');
 var destDir = jetpack.cwd('./app');
 
+var paths = {
+    copyFromAppDir: [
+        './node_modules/**',
+        './helpers/**',
+        './**/*.html',
+        './**/*.+(jpg|png|svg|ico|gif|icns)',
+        'auto-updater.js',
+        'background.png',
+        'background@2x.png',
+        './stylesheets/alertify.min.css',
+        './javascripts/**',
+        './release_assets/**'
+    ],
+};
+
+
 gulp.task('bundle', function () {
     return Promise.all([
         bundle(srcDir.path('background.js'), destDir.path('background.js')),
         bundle(srcDir.path('app.js'), destDir.path('app.js')),
+        bundle(srcDir.path('aria2.js'), destDir.path('aria2.js')),
+        bundle(srcDir.path('run_cmd.js'), destDir.path('run_cmd.js')),
     ]);
 });
 
